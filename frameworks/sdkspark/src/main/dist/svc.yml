@@ -54,13 +54,13 @@ pods:
       worker:
         goal: FINISHED
         cmd: >
-          $BOOTSTRAP -resolve-hosts coordinator-0-driver.sdkspark.mesos &&
+          $BOOTSTRAP -resolve-hosts coordinator-0-driver.{{FRAMEWORK_NAME}}.mesos &&
           /opt/spark/dist/./bin/spark-class org.apache.spark.executor.CoarseGrainedExecutorBackend
-          --driver-url spark://CoarseGrainedScheduler@coordinator-0-driver.sdkspark.mesos:9000
+          --driver-url spark://CoarseGrainedScheduler@coordinator-0-driver.{{FRAMEWORK_NAME}}.mesos:9000
           --executor-id $POD_INSTANCE_INDEX
           --hostname $(hostname -i)
           --cores {{EXECUTOR_CORES}}
-          --app-id sdkdriver
+          --app-id {{FRAMEWORK_NAME}}-driver
         env:
           EXECUTOR_CORES: {{EXECUTOR_CORES}}
         cpus: {{EXECUTOR_CORES}}
