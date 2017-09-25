@@ -11,10 +11,11 @@
             "type": "string",
             "default": "sdkspark"
           },
-          "sleep": {
-            "description": "The sleep duration in seconds before tasks exit.",
-            "type": "number",
-            "default":1000
+          "hdfs": {
+            "title": "HDFS endpoints",
+            "description": "Where to get HDFS config",
+            "type": "string",
+            "default": ""
           },
           "user": {
             "title": "User",
@@ -62,9 +63,9 @@
           },
           "spark_app_url": {
             "title": "Spark application URL",
-            "description": "(REQUIRED) Main class to run in you Spark application",
+            "description": "(REQUIRED) URI to get application from",
             "type": "string",
-            "default": "https://s3-us-west-2.amazonaws.com/arand-sandbox-mesosphere/spark-examples_2.11-2.3.0-SNAPSHOT.jar"
+            "default": "http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar"
           },
           "application_args": {
             "title": "Arguments to pass to your Spark application",
@@ -75,7 +76,6 @@
         },
         "required":[
           "name",
-          "sleep",
           "user",
           "main_class",
           "spark_app_url"

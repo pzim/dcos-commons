@@ -2,7 +2,7 @@
   "assets": {
     "container": {
       "docker": {
-        "spark": "artrand/spark"
+        "spark": "artrand/spark-495"
       }
     },
     "uris": {

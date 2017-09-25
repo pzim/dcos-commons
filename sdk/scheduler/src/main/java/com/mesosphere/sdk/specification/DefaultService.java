@@ -181,10 +181,10 @@ public class DefaultService implements Service {
         LOGGER.error("Scheduler driver exited with status: {}", status);
         // DRIVER_STOPPED will occur when we call stop(boolean) during uninstall.
         // When this happens, we want to continue running so that we can advertise that the uninstall plan is complete.
-        if (goal == Status.IN_PROGRESS) {
+        if (goal == Status.IN_PROGRESS || isUninstalling()) {
             if (status != Protos.Status.DRIVER_STOPPED) {
                 SchedulerUtils.hardExit(SchedulerErrorCode.DRIVER_EXITED);
-            }
+            } // continue running
         } else {
             if (status == Protos.Status.DRIVER_STOPPED) {
                 LOGGER.info("SENTINEL: Looks like the driver finished, exiting successfully");

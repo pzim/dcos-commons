@@ -14,6 +14,10 @@ pods:
     {{/ENABLE_VIRTUAL_NETWORK}}
     uris:
       - {{SPARK_APP_URL}}
+      {{#HDFS_CONFIG}}
+      - {{HDFS_CONFIG}}/hdfs-site.xml
+      - {{HDFS_CONFIG}}/core-site.xml
+      {{/HDFS_CONFIG}}
     tasks:
       driver:
         goal: FINISHED

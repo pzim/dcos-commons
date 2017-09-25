@@ -243,7 +243,7 @@ public class DefaultScheduler extends AbstractScheduler {
 
         /**
          * Sets the provided {@link PlanManager} to be the plan manager used for recovery.
-         * @param recoveryPlanOverriderFactory the factory whcih generates the custom recovery plan manager
+         * @param recoveryPlanOverriderFactory the factory which generates the custom recovery plan manager
          */
         public Builder setRecoveryManagerFactory(RecoveryPlanOverriderFactory recoveryPlanOverriderFactory) {
             this.recoveryPlanOverriderFactory = recoveryPlanOverriderFactory;

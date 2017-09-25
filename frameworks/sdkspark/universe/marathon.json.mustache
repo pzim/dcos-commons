@@ -22,13 +22,14 @@
   {{/service.service_account_secret}}
   "env": {
     "FRAMEWORK_NAME": "{{service.name}}",
-    "SLEEP_DURATION": "{{service.sleep}}",
     "FRAMEWORK_USER": "{{service.user}}",
     "FRAMEWORK_PRINCIPAL": "{{service.service_account}}",
     "FRAMEWORK_LOG_LEVEL": "{{service.log_level}}",
     "SPARK_APP_URL": "{{service.spark_app_url}}",
     "SPARK_MAIN_CLASS": "{{service.main_class}}",
     "APPLICATION_ARGS": "{{service.application_args}}",
+
+    "HDFS_CONFIG": "{{service.hdfs}}",
 
     {{#service.virtual_network_enabled}}
     "ENABLE_VIRTUAL_NETWORK": "yes",
