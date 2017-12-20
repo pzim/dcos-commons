@@ -10,6 +10,7 @@ import json
 import os
 import tempfile
 
+import retrying
 import shakedown
 
 import sdk_cmd
@@ -18,11 +19,16 @@ import sdk_metrics
 log = logging.getLogger(__name__)
 
 
+@retrying.retry(
+    wait_fixed=1000,
+    stop_max_delay=120*1000,
+    retry_on_result=lambda res: not res)
 def get_config(app_name):
     # Be permissive of flakes when fetching the app content:
-    def fn():
-        return sdk_cmd.request('get', api_url('apps/{}'.format(app_name)), retry=False, log_args=False)
-    config = shakedown.wait_for(lambda: fn()).json()['app']
+    response = sdk_cmd.request('get', api_url('apps/{}'.format(app_name)), retry=False, log_args=False)
+    if not response:
+        return False
+    config = response.json()['app']
 
     # The configuration JSON that marathon returns doesn't match the configuration JSON it accepts,
     # so we have to remove some offending fields to make it re-submittable, since it's not possible to
