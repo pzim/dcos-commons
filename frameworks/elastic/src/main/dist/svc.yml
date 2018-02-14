@@ -217,14 +217,14 @@ pods:
         memory: {{COORDINATOR_NODE_MEM}}
         ports:
           coordinator-http:
-            port: 0
+            port: {{COORDINATOR_NODE_HTTP_PORT}}
             env-key: PORT_HTTP
             advertise: true
             vip:
               prefix: coordinator
               port: 9200
           coordinator-transport:
-            port: 0
+            port: {{COORDINATOR_NODE_TRANSPORT_PORT}}
             env-key: PORT_TRANSPORT
             advertise: true
             vip:

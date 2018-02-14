@@ -43,6 +43,8 @@ public class ElasticServiceTest extends BaseServiceSpecTest {
                 "COORDINATOR_NODE_MEM", "4000",
                 "COORDINATOR_NODE_HEAP_MB", "2000",
                 "COORDINATOR_NODE_DISK", "10000",
+                "COORDINATOR_NODE_HTTP_PORT", "11000",
+                "COORDINATOR_NODE_TRANSPORT_PORT", "11001",
                 "COORDINATOR_NODE_DISK_TYPE", "ROOT");
     }
 

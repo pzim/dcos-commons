@@ -791,6 +791,16 @@
           "description": "Disk type to be used for storing data. [ROOT, MOUNT]",
           "default": "ROOT"
         },
+        "http_port": {
+          "description": "The REST API port",
+          "type": "integer",
+          "default": 0
+        },
+        "transport_port": {
+          "description": "The tcp trasport port",
+          "type": "integer",
+          "default": 0
+        },
         "placement": {
           "description": "Marathon-style placement constraints",
           "type": "string"
